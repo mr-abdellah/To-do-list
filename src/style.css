@@ -88,24 +88,47 @@ ul {
   border-bottom: 1px solid #dcdbdb;
 }
 
-.dots {
+.check:checked + h2 {
+    text-decoration: line-through;
+}
+
+.editInput {
+    border: none;
+    background: transparent;
+    outline: none;
+}
+
+.dots,
+.trashBtn {
   display: flex;
   flex-direction: column;
   border: none;
   background-color: transparent;
   transform: rotate(90deg);
   padding: 0;
-  height: 50%;
   width: 24%;
   font-size: 12px;
-  margin-left: 64%;
+  margin-left: 55%;
   cursor: pointer;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+}
+
+.trashBtn {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
 }
 
 #clear {
   border: none;
   background-color: #fff;
   height: 10vh;
+  width: 100%;
 }
 
 #clear:hover {
