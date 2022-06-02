@@ -115,17 +115,37 @@ eval("\r\n\r\n/* istanbul ignore next  */\r\nfunction styleTagTransform(css, sty
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _img_refresh_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./img/refresh.png */ \"./src/img/refresh.png\");\n/* harmony import */ var _img_return_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./img/return.png */ \"./src/img/return.png\");\n/* harmony import */ var _modules_generateTasks_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/generateTasks.js */ \"./src/modules/generateTasks.js\");\n\r\n\r\n\r\n\r\n\r\nconst refreshImg = document.querySelector('#refresh');\r\nconst returnImg = document.querySelector('#refresh');\r\n\r\nrefreshImg.src = _img_refresh_png__WEBPACK_IMPORTED_MODULE_1__;\r\nreturnImg.src = _img_return_png__WEBPACK_IMPORTED_MODULE_2__;\r\n\r\nconst myTasks = [\r\n  {\r\n    description: 'one',\r\n    bool: true,\r\n    index: 0,\r\n  },\r\n\r\n  {\r\n    description: 'two',\r\n    bool: true,\r\n    index: 2,\r\n  },\r\n  {\r\n    description: 'three',\r\n    bool: true,\r\n    index: 3,\r\n  },\r\n];\r\n\r\nconst ul = document.querySelector('ul');\r\n\r\nconst displayTasks = myTasks.map((task) => (0,_modules_generateTasks_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"])(task)).join('');\r\nul.innerHTML = displayTasks;\r\n\n\n//# sourceURL=webpack://webpack/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _img_refresh_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./img/refresh.png */ \"./src/img/refresh.png\");\n/* harmony import */ var _img_return_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./img/return.png */ \"./src/img/return.png\");\n/* harmony import */ var _modules_addBookFunction__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/addBookFunction */ \"./src/modules/addBookFunction.js\");\n/* harmony import */ var _modules_pushFunction__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/pushFunction */ \"./src/modules/pushFunction.js\");\n// import Css ,images sources =>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nconst refreshImg = document.querySelector('#refresh');\r\nconst returnImg = document.querySelector('#return');\r\n\r\nrefreshImg.src = _img_refresh_png__WEBPACK_IMPORTED_MODULE_1__;\r\nreturnImg.src = _img_return_png__WEBPACK_IMPORTED_MODULE_2__;\r\n\r\n_modules_addBookFunction__WEBPACK_IMPORTED_MODULE_3__.input.addEventListener('change', (0,_modules_pushFunction__WEBPACK_IMPORTED_MODULE_4__[\"default\"])());\n\n//# sourceURL=webpack://webpack/./src/index.js?");
 
 /***/ }),
 
-/***/ "./src/modules/generateTasks.js":
-/*!**************************************!*\
-  !*** ./src/modules/generateTasks.js ***!
-  \**************************************/
+/***/ "./src/modules/addBookFunction.js":
+/*!****************************************!*\
+  !*** ./src/modules/addBookFunction.js ***!
+  \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst generateTasks = ({ description }) => `\r\n        <li class=\"oneTask\">\r\n            <input type=\"checkbox\" name=\"check\" id=\"check\">\r\n            <h2>${description}</h2>\r\n            <button type=\"submit\" class=\"dots\">...</button>\r\n        </li>\r\n        `;\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (generateTasks);\n\n//# sourceURL=webpack://webpack/./src/modules/generateTasks.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"addTask\": () => (/* binding */ addTask),\n/* harmony export */   \"input\": () => (/* binding */ input),\n/* harmony export */   \"myTasks\": () => (/* binding */ myTasks)\n/* harmony export */ });\n/* harmony import */ var _tasksClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tasksClass */ \"./src/modules/tasksClass.js\");\n\r\n\r\nconst myTasks = [];\r\nconst input = document.querySelector('#task');\r\n\r\n// const task = new Tasks(input.value, false, myTasks.length);\r\n\r\nconst addTask = ({description, completed, index}) => {\r\n    // create element =>\r\n    const listParent = document.querySelector('ul');\r\n    const listChild = document.createElement('li');\r\n    const checkBox = document.createElement('input');\r\n    let heading = document.createElement('h2');\r\n    const dotsButton = document.createElement('button');\r\n\r\n    // \r\n    heading.textContent = description;\r\n    // Assign attributes =>\r\n\r\n    checkBox.setAttribute('type', 'checkbox');\r\n    checkBox.setAttribute('name', 'check');\r\n    dotsButton.setAttribute('type', 'submit');\r\n\r\n    // Assing id/classes =>\r\n\r\n    listChild.classList.add('oneTask');\r\n    checkBox.setAttribute('id', 'check');\r\n    dotsButton.classList.add('dots');\r\n\r\n    // appending elements =>\r\n\r\n    listParent.appendChild(listChild);\r\n    listChild.appendChild(checkBox);\r\n    listChild.appendChild(heading);\r\n    listChild.appendChild(dotsButton)\r\n}\r\n\r\n\n\n//# sourceURL=webpack://webpack/./src/modules/addBookFunction.js?");
+
+/***/ }),
+
+/***/ "./src/modules/pushFunction.js":
+/*!*************************************!*\
+  !*** ./src/modules/pushFunction.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _addBookFunction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./addBookFunction */ \"./src/modules/addBookFunction.js\");\n/* harmony import */ var _tasksClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tasksClass */ \"./src/modules/tasksClass.js\");\n\r\n\r\nconst ul = document.querySelector('ul');\r\n\r\nconst pushFunction = () => {\r\n    const task = new _tasksClass__WEBPACK_IMPORTED_MODULE_1__[\"default\"](_addBookFunction__WEBPACK_IMPORTED_MODULE_0__.input.value, false, _addBookFunction__WEBPACK_IMPORTED_MODULE_0__.myTasks.length+1);\r\n    _addBookFunction__WEBPACK_IMPORTED_MODULE_0__.myTasks.push(task);\r\n    const displayTasks = _addBookFunction__WEBPACK_IMPORTED_MODULE_0__.myTasks.map((task) => (0,_addBookFunction__WEBPACK_IMPORTED_MODULE_0__.addTask)(task)).join('');\r\n    ul.innerHTML = displayTasks;\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (pushFunction);\n\n//# sourceURL=webpack://webpack/./src/modules/pushFunction.js?");
+
+/***/ }),
+
+/***/ "./src/modules/tasksClass.js":
+/*!***********************************!*\
+  !*** ./src/modules/tasksClass.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nclass Tasks {\r\n    constructor(description='', completed = false ,index){\r\n        this.description = description;\r\n        this.completed = completed;\r\n        this.index = index;\r\n    }\r\n}\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Tasks);\n\n//# sourceURL=webpack://webpack/./src/modules/tasksClass.js?");
 
 /***/ }),
 
