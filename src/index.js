@@ -1,5 +1,13 @@
 import './style.css';
+import refresh from './img/refresh.png';
+import returny from './img/return.png'
 import generateTasks from './modules/generateTasks.js';
+
+const refreshImg = document.querySelector('#refresh');
+const returnImg = document.querySelector('#return');
+
+refreshImg.src = refresh;
+returnImg.src = returny;
 
 const myTasks = [
   {
