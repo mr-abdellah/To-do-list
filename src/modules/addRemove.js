@@ -42,6 +42,7 @@ const createEl = (description, index) => {
   listChild.appendChild(applyButton);
 
   const trashBtn = document.createElement('button');
+  trashBtn.setAttribute('id', index);
 
   dots.addEventListener('click', () => {
     listChild.style.gridTemplateColumns = '1fr 4fr 1fr 1fr';
@@ -80,8 +81,13 @@ const createEl = (description, index) => {
         myTasks[i].index -= 1;
         localStorage.setItem('myTasks', JSON.stringify(myTasks));
       }
+      listParent.innerHTML = '';
+      myTasks.forEach((task) => {
+        listParent.appendChild(createEl(task.description, task.index));
+      });
     });
   });
+  return listChild;
 };
 
 export default createEl;
