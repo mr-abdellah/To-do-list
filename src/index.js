@@ -2,8 +2,10 @@
 import './style.css';
 import refresh from './img/refresh.png';
 import returny from './img/return.png';
-import { save } from './modules/saveTasks.js';
+import save from './modules/saveTasks.js';
 import displayTask from './modules/displayTask.js';
+import { myTasks, savedTasks } from './modules/arrayTasks.js';
+import { removeFunction } from './modules/addRemove.js';
 
 const refreshImg = document.querySelector('#refresh');
 const returnImg = document.querySelector('#return');
@@ -18,3 +20,5 @@ const refreshBtn = document.querySelector('#btnRefresh');
 refreshBtn.addEventListener('click', () => {
   window.location.reload();
 });
+
+console.log(myTasks);

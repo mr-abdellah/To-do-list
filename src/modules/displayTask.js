@@ -1,6 +1,6 @@
-import { myTasks } from './saveTasks.js';
+import { myTasks } from './arrayTasks';
 import Tasks from './TasksClass.js';
-import createEl from './addRemove.js';
+import { createEl } from './addRemove.js';
 
 const displayTask = () => {
   const input = document.querySelector('#task');
