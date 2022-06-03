@@ -17,6 +17,14 @@ to get a local copy , clone the repository using git clone
 
 > Awesome books: plain JavaScript with objects and modules
 
+### Step to run the project after cloning :
+
+- From your terminal :
+- Run this codes :
+-1- npm install
+-2- npm run build
+-3- npm start
+
 ## Built With
 
 - HTML
