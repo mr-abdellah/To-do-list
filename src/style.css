@@ -104,10 +104,6 @@ ul {
   border-bottom: 1px solid #dcdbdb;
 }
 
-.check:checked + h2 {
-  text-decoration: line-through;
-}
-
 .editInput {
   border: none;
   background: transparent;
@@ -149,4 +145,8 @@ ul {
 
 #clear:hover {
   background: #e9e9e9;
+}
+
+.toggle {
+  text-decoration: line-through;
 }

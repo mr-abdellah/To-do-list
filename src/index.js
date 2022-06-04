@@ -2,7 +2,7 @@
 import './style.css';
 import refresh from './img/refresh.png';
 import returny from './img/return.png';
-import { save } from './modules/saveTasks.js';
+import save from './modules/saveTasks.js';
 import displayTask from './modules/displayTask.js';
 
 const refreshImg = document.querySelector('#refresh');
