@@ -5,23 +5,7 @@ import applyImg from '../img/apply.png';
 
 const listParent = document.querySelector('ul');
 
-function removeFunction(myTask, trashBtn, index) {
-  if (myTasks === []) return;
-  myTasks.splice(index - 1, 1);
-  localStorage.setItem('myTasks', JSON.stringify(myTasks));
-
-  for (let i = index - 1; i < myTasks.length; i += 1) {
-    myTasks[i].index -= 1;
-    localStorage.setItem('myTasks', JSON.stringify(myTasks));
-  }
-  listParent.innerHTML = '';
-  myTasks.forEach((task) => {
-    listParent.appendChild(createEl(task.description, task.index));
-  });
-}
-
-
-const createEl = (description,completed ,index) => {
+const createEl = (description, completed, index) => {
   const listChild = document.createElement('li');
   const checkBox = document.createElement('input');
   const heading = document.createElement('h2');
@@ -90,49 +74,74 @@ const createEl = (description,completed ,index) => {
     // Remove func
 
     trashBtn.addEventListener('click', () => {
-      removeFunction(listChild,trashBtn,index);
+      function removeFunction(listChild, trashBtn, index) {
+        if (myTasks === []) return;
+        myTasks.splice(index - 1, 1);
+        localStorage.setItem('myTasks', JSON.stringify(myTasks));
+        for (let i = index - 1; i < myTasks.length; i += 1) {
+          myTasks[i].index -= 1;
+          localStorage.setItem('myTasks', JSON.stringify(myTasks));
+        }
+        listParent.innerHTML = '';
+        myTasks.forEach((task) => {
+          listParent.appendChild(createEl(task.description, task.index));
+        });
+      }
+      removeFunction(listChild, trashBtn, index);
     });
   });
 
   checkBox.addEventListener('click', () => {
-    if(checkBox.checked) {
+    if (checkBox.checked) {
       checkBox.checked = true;
       heading.style.textDecoration = 'line-through';
       for (let i = 0; i < myTasks.length; i += 1) {
-        if(myTasks[i].index === index) {
+        if (myTasks[i].index === index) {
           myTasks[i].completed = true;
           localStorage.setItem('myTasks', JSON.stringify(myTasks));
-          console.log(myTasks[i]);
         }
       }
     } else {
       heading.style.textDecoration = 'none';
       for (let i = 0; i < myTasks.length; i += 1) {
-        if(myTasks[i].index === index) {
+        if (myTasks[i].index === index) {
           myTasks[i].completed = false;
           localStorage.setItem('myTasks', JSON.stringify(myTasks));
-          console.log(myTasks[i]);
         }
       }
     }
-  })
+  });
 
-  if(completed === true) {
+  if (completed === true) {
     checkBox.checked = true;
     heading.style.textDecoration = 'line-through';
   }
 
+  function removeFunction(myTask, trashBtn, index) {
+    if (myTasks === []) return;
+    myTasks.splice(index - 1, 1);
+    localStorage.setItem('myTasks', JSON.stringify(myTasks));
+
+    for (let i = index - 1; i < myTasks.length; i += 1) {
+      myTasks[i].index -= 1;
+      localStorage.setItem('myTasks', JSON.stringify(myTasks));
+    }
+    listParent.innerHTML = '';
+    myTasks.forEach((task) => {
+      listParent.appendChild(createEl(task.description, task.index));
+    });
+  }
+
   const clear = document.querySelector('#clear');
   clear.addEventListener('click', () => {
-    for (let i = 0; i < myTasks.length; i++) {
-      console.log(myTasks[i]);
-      if(myTasks[i].completed === true) {
+    for (let i = 0; i < myTasks.length; i += 1) {
+      if (myTasks[i].completed === true) {
         removeFunction(myTasks[i], trashBtn, myTasks[i].index);
       }
-    };
-  })
+    }
+  });
 
   return listChild;
 };
 
-export { removeFunction, createEl }
+export default createEl;

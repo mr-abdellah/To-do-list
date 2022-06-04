@@ -1,5 +1,5 @@
-import Tasks from './TasksClass.js';
-import { createEl } from './addRemove.js';
+import Tasks from './tasksClass.js';
+import createEl from './addRemove.js';
 import { myTasks, savedTasks } from './arrayTasks.js';
 // const myTasks = [];
 // const savedTasks = JSON.parse(localStorage.getItem('myTasks')) || [];
@@ -12,4 +12,4 @@ const save = () => {
   });
 };
 
-export default save ;
+export default save;

@@ -103,10 +103,6 @@ ul {
   height: 11vh;
   border-bottom: 1px solid #dcdbdb;
 }
-/* 
-.check:checked + h2 {
-  text-decoration: line-through;
-} */
 
 .editInput {
   border: none;
