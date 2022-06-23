@@ -1,15 +1,49 @@
-import Tasks from './tasksClass.js';
-import createEl from './addRemove.js';
-import { myTasks, savedTasks } from './arrayTasks.js';
-// const myTasks = [];
-// const savedTasks = JSON.parse(localStorage.getItem('myTasks')) || [];
+class SaveTasks {
+    STORE_KEY = 'todo-list';
 
-const save = () => {
-  savedTasks.forEach((ele) => {
-    const Task = new Tasks(ele.description, ele.completed, ele.index);
-    myTasks.push(Task);
-    createEl(Task.description, Task.completed, Task.index);
-  });
-};
+    items = [];
 
-export default save;
+    constructor() {
+      this.items = this.getItems();
+    }
+
+    add(item) {
+      this.items.push(item);
+      this.store(this.items);
+    }
+
+    edit(idx, newTodo) {
+      const index = this.items.findIndex(({ index }) => index === idx);
+
+      this.items[index].description = newTodo;
+      this.store(this.items);
+    }
+
+    delete(idx) {
+      const deleteIndex = this.items.findIndex(({ index }) => index === idx);
+
+      if (deleteIndex > -1) this.items.splice(deleteIndex, 1);
+      this.store(this.items);
+    }
+
+    completed(idx, checked) {
+      const index = this.items.findIndex(({ index }) => index === idx);
+
+      this.items[index].completed = checked;
+      this.store(this.items);
+    }
+
+    store(items) {
+      const data = JSON.stringify(items);
+
+      localStorage.setItem(this.STORE_KEY, data);
+    }
+
+    getItems() {
+      const items = localStorage.getItem(this.STORE_KEY);
+
+      return items ? JSON.parse(items) : [];
+    }
+}
+
+export default SaveTasks;

@@ -4,19 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List</title>
+    <script src="https://kit.fontawesome.com/cd401c100b.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container">
         <div class="title">
             <h1>Today's To Do </h1>
-            <button id="btnRefresh"><img id="refresh" src="." alt="refresh list"></button>
+            <button id="btnRefresh"><i class="fa-solid fa-arrows-rotate"></i></button>
         </div>
         <div class="input-container">
             <input type="text" name="task" id="task" placeholder="Add to your list...">            
-            <img id="return" src="." alt="return icon">
+            <i class="fa-solid fa-arrow-turn-down-left"></i>
         </div>
-        <ul></ul>
-        <button type="submit" id="clear">Clear all completed</button>
+        <ul class="lists-parents"></ul>
+        <button type="submit" class="clear">Clear all completed</button>
     </div>
 </body>
 </html>

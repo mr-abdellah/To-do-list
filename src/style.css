@@ -13,6 +13,9 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border: none;
+  background: transparent;
+  outline: none;
 }
 
 h1 {
@@ -97,43 +100,24 @@ ul {
 
 .oneTask {
   display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-columns: 1fr 4fr 1fr 1fr;
   align-items: center;
   width: 100%;
   height: 11vh;
   border-bottom: 1px solid #dcdbdb;
 }
 
-.editInput {
-  border: none;
-  background: transparent;
-  outline: none;
-}
-
-.dots,
-.trashBtn {
+.option,
+.remove-btn {
   display: flex;
   flex-direction: column;
   border: none;
   background-color: transparent;
-  transform: rotate(90deg);
   padding: 0;
   width: 24%;
   font-size: 12px;
   margin-left: 55%;
   cursor: pointer;
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-}
-
-.trashBtn {
-  transform: rotate(0deg);
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
 }
 
 #clear {
@@ -147,6 +131,26 @@ ul {
   background: #e9e9e9;
 }
 
-.toggle {
+.title:not(:focus) ~ .option {
+  visibility: visible;
+  opacity: 1;
+  position: relative;
+  left: 80%;
+}
+
+.remove-btn {
+  visibility: hidden;
+  transition: all ease-in-out 0.4s 0.2s;
+}
+
+.title:focus ~ .remove-btn {
+  visibility: visible;
+}
+
+.title:focus ~ .option {
+  visibility: hidden;
+}
+
+.check:checked + .title {
   text-decoration: line-through;
 }
