@@ -17,4 +17,12 @@ describe('test to do list:', () => {
     task.delete(task.items[0].index);
     expect(task.items.length).toBe(tasksLength - 1);
   });
+  test('should edit task description', () => {
+    task.add('Eating');
+    const newTask = 'drinking';
+    const {index} = task.items[task.items.length - 1];
+    task.edit(index, newTask);
+    const {description} = task.items[task.items.length - 1];
+    expect(description).toBe(newTask);
+  })
 });
