@@ -11,4 +11,10 @@ describe('test to do list:', () => {
     const { description } = task.items[task.items.length - 1];
     expect(newTodo).toBe(description);
   });
+  test('should delete item from to-do-list', () => {
+    task.add('Cycling');
+    const tasksLength = task.items.length;
+    task.delete(task.items[0].index);
+    expect(task.items.length).toBe(tasksLength - 1);
+  });
 });
