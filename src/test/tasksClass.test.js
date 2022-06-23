@@ -20,9 +20,16 @@ describe('test to do list:', () => {
   test('should edit task description', () => {
     task.add('Eating');
     const newTask = 'drinking';
-    const {index} = task.items[task.items.length - 1];
+    const { index } = task.items[task.items.length - 1];
     task.edit(index, newTask);
-    const {description} = task.items[task.items.length - 1];
+    const { description } = task.items[task.items.length - 1];
     expect(description).toBe(newTask);
-  })
+  });
+  test('todolist update function test', () => {
+    task.add('create portfolio');
+    const { index } = task.items[task.items.length - 1];
+    task.completed(index, true);
+    const { completed } = task.items[task.items.length - 1];
+    expect(completed).toBe(true);
+  });
 });
