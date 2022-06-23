@@ -4,7 +4,6 @@ const createTasks = ({ index, description, completed }) => {
     ...(completed ? ['todo__list-item--completed'] : []),
   ].join(' ');
   const listChild = document.createElement('li');
-  // const li = document.createElement('li');
 
   listChild.id = `todo__list-item-${index}`;
   listChild.classList = listItemClasses;
