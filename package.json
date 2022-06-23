@@ -1,17 +1,10 @@
 {
   "name": "webpack",
-  "jest": {
-    "resetMocks": false,
-    "setupFiles": [
-      "./__setups__/localstorage.js",
-      "jest-localstorage-mock"
-    ]
-  },
   "version": "1.0.0",
   "description": "![](https://img.shields.io/badge/Microverse-blueviolet)",
   "private": "true",
   "scripts": {
-    "test": "jest --env=jsdom",
+    "test": "jest",
     "start": "webpack serve --open",
     "build": "webpack",
     "watch": "webpack --watch"
